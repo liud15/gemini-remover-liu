@@ -93,8 +93,8 @@
         </h1>
       </div>
       <nav class="flex gap-2 md:gap-6 text-sm font-medium text-gray-600 items-center">
-        <a href="userscript/gemini-watermark-remover.user.js" target="_blank" class="hidden md:inline-block hover:text-primary transition-colors" data-i18n="nav.userscript">油猴脚本</a>
-        <a href="https://allenkuo.medium.com/removing-gemini-ai-watermarks-a-deep-dive-into-reverse-alpha-blending-bbbd83af2a3f" target="_blank" rel="noopener noreferrer" class="hidden md:inline-block hover:text-primary transition-colors" data-i18n="nav.principle">去水印原理</a>
+        <a href="userscript/gemini-watermark-remover.user.js" target="_blank" class="hidden md:inline-block hover:text-primary transition-colors" data-i18n="nav.userscript">Install Userscript for Gemini</a>
+        <a href="https://allenkuo.medium.com/removing-gemini-ai-watermarks-a-deep-dive-into-reverse-alpha-blending-bbbd83af2a3f" target="_blank" rel="noopener noreferrer" class="hidden md:inline-block hover:text-primary transition-colors" data-i18n="nav.principle">How It Works?</a>
         <button id="themeToggle" class="p-2 text-gray-500 hover:text-primary transition-colors rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 dark:text-gray-400">
             <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
@@ -113,10 +113,10 @@
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-50 via-white to-white dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 -z-10 transition-colors duration-200"></div>
       
       <h2 class="bg-clip-text bg-gradient-to-br font-extrabold from-slate-900 to-slate-700 dark:from-white dark:to-gray-300 mb-6 md:text-6xl text-3xl text-transparent tracking-tighter" data-i18n="main.title">
-        Gemini AI 图像去水印
+        Gemini AI Watermark Removal
       </h2>
       <p class="text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10" data-i18n="main.subtitle">
-        基于反向 Alpha 混合算法，纯浏览器本地处理，免费、极速、无损
+        Based on reverse alpha blending algorithm, pure browser-side processing, Free, Fast, and Lossless
       </p>
 
       <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-soft p-2 md:p-3 border border-emerald-100 dark:border-gray-700 transition-colors duration-200">
@@ -125,8 +125,8 @@
             <div class="w-16 h-16 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
               <svg class="w-8 h-8 text-primary dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M 22.498 20.365 L 22.498 4.247 C 22.498 2.983 21.461 1.946 20.197 1.946 L 4.079 1.946 C 2.815 1.946 1.778 2.983 1.778 4.247 L 1.778 20.365 C 1.778 21.629 2.815 22.666 4.079 22.666 L 20.197 22.666 C 21.461 22.666 22.498 21.629 22.498 20.365 Z M 8.111 14.032 L 10.987 17.483 L 15.014 12.306 L 20.197 19.214 L 4.079 19.214 L 8.111 14.032 Z" fill="currentColor"></path></svg>
             </div>
-            <p class="mb-2 text-lg font-medium text-gray-700 dark:text-gray-200" data-i18n="upload.text">点击选择 或 拖拽图片至此</p>
-            <p class="text-sm text-gray-400 dark:text-gray-500" data-i18n="upload.hint">支持 JPG, PNG, WebP</p>
+            <p class="mb-2 text-lg font-medium text-gray-700 dark:text-gray-200" data-i18n="upload.text">Click to select or drag images here</p>
+            <p class="text-sm text-gray-400 dark:text-gray-500" data-i18n="upload.hint">Supports JPG, PNG, WebP</p>
           </div>
           <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden" />
         </div>
@@ -137,15 +137,15 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10 text-center">
         <div class="step-item relative bg-emerald-50 dark:bg-gray-800 h-16 md:h-24 flex items-center justify-start px-6 md:pl-16 rounded-lg md:rounded-none md:first:rounded-l-lg md:last:rounded-r-lg border border-transparent dark:border-gray-700 transition-colors">
           <div class="w-8 h-8 rounded-full bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-bold flex items-center justify-center mr-3 text-sm">1</div>
-          <span class="font-medium flex-1 md:flex-none text-gray-800 dark:text-gray-200" data-i18n="step.1">选择原始图片</span>
+          <span class="font-medium flex-1 md:flex-none text-gray-800 dark:text-gray-200" data-i18n="step.1">Select Original Image</span>
         </div>
         <div class="step-item relative bg-emerald-50 dark:bg-gray-800 h-16 md:h-24 flex items-center justify-start px-6 md:pl-16 rounded-lg md:rounded-none border border-transparent dark:border-gray-700 transition-colors">
           <div class="w-8 h-8 rounded-full bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-bold flex items-center justify-center mr-3 text-sm">2</div>
-          <span class="font-medium flex-1 md:flex-none text-gray-800 dark:text-gray-200" data-i18n="step.2">算法自动解析</span>
+          <span class="font-medium flex-1 md:flex-none text-gray-800 dark:text-gray-200" data-i18n="step.2">Auto Processing</span>
         </div>
         <div class="step-item relative bg-emerald-50 dark:bg-gray-800 h-16 md:h-24 flex items-center justify-start px-6 md:pl-16 rounded-lg md:rounded-none md:last:rounded-r-lg border border-transparent dark:border-gray-700 transition-colors">
           <div class="w-8 h-8 rounded-full bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-bold flex items-center justify-center mr-3 text-sm">3</div>
-          <span class="font-medium flex-1 md:flex-none text-gray-800 dark:text-gray-200" data-i18n="step.3">保存无水印图</span>
+          <span class="font-medium flex-1 md:flex-none text-gray-800 dark:text-gray-200" data-i18n="step.3">Save Clean Image</span>
         </div>
       </div>
     </section>
@@ -156,7 +156,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-card overflow-hidden border border-gray-100 dark:border-gray-700">
                 <div class="bg-gray-50 dark:bg-gray-900 px-6 py-3 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
                   <h3 class="font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span> <span data-i18n="preview.compare">对比预览</span>
+                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span> <span data-i18n="preview.compare">Comparison Preview</span>
                   </h3>
                   <div class="flex gap-4">
                       <span id="originalInfo" class="text-xs text-gray-400 font-mono"></span>
@@ -183,8 +183,8 @@
                         </div>
 
                          <!-- Labels -->
-                        <div class="absolute top-4 left-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm pointer-events-none z-30" data-i18n="preview.result">处理后</div>
-                        <div class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm pointer-events-none z-30" data-i18n="preview.original">原图</div>
+                        <div class="absolute top-4 left-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm pointer-events-none z-30" data-i18n="preview.result">Processed Result</div>
+                        <div class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm pointer-events-none z-30" data-i18n="preview.original">Original Preview</div>
                     </div>
                 </div>
             </div>
@@ -192,22 +192,22 @@
 
         <div class="w-full lg:w-80 flex-shrink-0">
           <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-6 sticky top-24 transition-colors">
-            <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-6" data-i18n="panel.title">操作面板</h4>
+            <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-6" data-i18n="panel.title">Control Panel</h4>
 
             <div class="space-y-3">
               <button id="copyBtn" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2" style="display: none;">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m-1 10H8m4-3H8m1.5 6H8"></path></svg>
-                <span data-i18n="btn.copy">复制结果</span>
+                <span data-i18n="btn.copy">Copy Image</span>
               </button>
 
               <button id="downloadBtn" class="w-full py-3.5 px-4 bg-gray-900 hover:bg-black dark:bg-primary dark:hover:bg-primary-hover text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2" style="display: none;">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span data-i18n="btn.download">下载结果</span>
+                <span data-i18n="btn.download">Download</span>
               </button>
 
               <button id="resetBtn" class="w-full py-3.5 px-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                <span data-i18n="btn.reset">重置 / 更换图片</span>
+                <span data-i18n="btn.reset">Reset / Change Image</span>
               </button>
             </div>
 
@@ -220,11 +220,11 @@
     <section id="multiPreview" class="max-w-7xl mx-auto px-4 pb-24 scroll-mt-24" style="display: none;">
       <div class="mb-6 flex justify-between items-center">
         <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">
-          <span id="progressText">处理进度: 0/0</span>
+          <span id="progressText">Progress: 0/0</span>
         </h3>
         <button id="downloadAllBtn" class="py-2.5 px-6 bg-gray-900 hover:bg-gray-800 dark:bg-primary dark:hover:bg-primary-hover text-white rounded-xl font-medium transition-all flex items-center gap-2" style="display: none;">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          <span data-i18n="btn.downloadAll">全部下载</span>
+          <span data-i18n="btn.downloadAll">Download All</span>
         </button>
       </div>
       <div id="imageList" class="space-y-4"></div>
@@ -233,22 +233,22 @@
     <section class="bg-gray-50 dark:bg-gray-900 py-16 border-t border-gray-100 dark:border-gray-800 transition-colors">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-6 md:mb-12">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white" data-i18n="feature.title">功能特点</h3>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white" data-i18n="feature.title">Features</h3>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 text-primary rounded-lg flex items-center justify-center mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" data-i18n="feature.speed.title">极速处理</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed" data-i18n="feature.speed.desc">基于现代浏览器技术加速处理，毫秒级响应，无需等待排队</p>
+            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" data-i18n="feature.speed.title">Lightning Fast</h4>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed" data-i18n="feature.speed.desc">Based on modern browser technologies, millisecond response, no waiting queue</p>
           </div>
           <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             </div>
-            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" data-i18n="feature.privacy.title">隐私安全</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed" data-i18n="feature.privacy.desc">纯前端运行，图片数据不离机，绝不上传服务器</p>
+            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" data-i18n="feature.privacy.title">Privacy First</h4>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed" data-i18n="feature.privacy.desc">Pure frontend processing, images never leave your device</p>
           </div>
           <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-4">
@@ -256,8 +256,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z M6 6l12 12"></path>
               </svg>
             </div>
-            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" data-i18n="feature.free.title">完全免费</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed" data-i18n="feature.free.desc">无次数限制，无隐藏付费，即开即用</p>
+            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" data-i18n="feature.free.title">Completely Free</h4>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed" data-i18n="feature.free.desc">No usage limits, no hidden fees, ready to use</p>
           </div>
         </div>
       </div>
@@ -282,7 +282,7 @@
   <div id="loadingOverlay" class="fixed inset-0 bg-white/80 backdrop-blur-sm z-[60] hidden flex items-center justify-center">
     <div class="flex flex-col items-center">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
-      <p class="text-gray-600 font-medium" data-i18n="loading.text">正在处理...</p>
+      <p class="text-gray-600 font-medium" data-i18n="loading.text">Processing...</p>
     </div>
   </div>
 
