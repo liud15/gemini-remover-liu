@@ -4,12 +4,11 @@
 
 开源的 **Gemini 水印去除工具**，可无损去除 Gemini AI 生成图片中的水印。基于纯 JavaScript 实现，使用数学精确的反向 Alpha 混合算法，而非 AI 修复，确保像素级精准的 Gemini 图片去水印效果。
 
-> **🚀 想快速去除 Gemini 水印？直接使用在线去水印工具：[pilio.ai/gemini-watermark-remover](https://pilio.ai/gemini-watermark-remover)** — 免费、无需安装，浏览器即可使用。
+> **🚀 想快速去除 Gemini 水印？直接使用在线去水印工具：[liud15.github.io/gemini-remover-liu](https://liud15.github.io/gemini-remover-liu/)** — 免费、无需安装，浏览器即可使用。
 
 <p align="center">
-  <a href="https://pilio.ai/gemini-watermark-remover"><img src="https://img.shields.io/badge/🛠️_在线工具-pilio.ai-blue?style=for-the-badge" alt="在线工具"></a>&nbsp;
-  <a href="https://gemini.pilio.ai/userscript/gemini-watermark-remover.user.js"><img src="https://img.shields.io/badge/🐒_油猴脚本-安装-green?style=for-the-badge" alt="油猴脚本"></a>&nbsp;
-  <a href="https://gemini.pilio.ai"><img src="https://img.shields.io/badge/🧪_开发者预览-gemini.pilio.ai-gray?style=for-the-badge" alt="开发者预览"></a>
+  <a href="https://liud15.github.io/gemini-remover-liu/"><img src="https://img.shields.io/badge/🛠️_在线工具-GitHub_Pages-blue?style=for-the-badge" alt="在线工具"></a>&nbsp;
+  <a href="https://liud15.github.io/gemini-remover-liu/userscript/gemini-watermark-remover.user.js"><img src="https://img.shields.io/badge/🐒_油猴脚本-安装-green?style=for-the-badge" alt="油猴脚本"></a>
 </p>
 
 <p align="center">
@@ -59,7 +58,7 @@
 > 作者对任何形式的数据丢失、图像损坏或非预期的修改结果不承担法律责任。使用本工具即代表您已了解并接受上述风险。
 
 > [!NOTE]
-> 另请注意：使用此工具需禁用 Canvas 指纹防护扩展（如 Canvas Fingerprint Defender），否则可能会导致处理结果错误。 https://github.com/GargantuaX/gemini-watermark-remover/issues/3
+> 另请注意：使用此工具需禁用 Canvas 指纹防护扩展（如 Canvas Fingerprint Defender），否则可能会导致处理结果错误。 https://github.com/liud15/gemini-remover-liu/issues
 
 ## 如何去除 Gemini 水印
 
@@ -67,7 +66,7 @@
 
 所有用户均可使用 — 最简单快速的 Gemini 图片去水印方式：
 
-1. 浏览器打开 **[pilio.ai/gemini-watermark-remover](https://pilio.ai/gemini-watermark-remover)**
+1. 浏览器打开 **[liud15.github.io/gemini-remover-liu](https://liud15.github.io/gemini-remover-liu/)**
 2. 拖拽或点击选择带水印的 Gemini 图片
 3. 图片会自动开始处理，移除水印
 4. 下载处理后的图片
@@ -75,13 +74,13 @@
 ### 油猴脚本
 
 1. 安装油猴插件（如 Tampermonkey 或 Greasemonkey）
-2. 打开 [gemini-watermark-remover.user.js](https://gemini.pilio.ai/userscript/gemini-watermark-remover.user.js)
+2. 打开 [gemini-watermark-remover.user.js](https://liud15.github.io/gemini-remover-liu/userscript/gemini-watermark-remover.user.js)
 3. 脚本会自动安装到浏览器中
 4. Gemini 对话页面点击复制或者下载图片时，会自动移除水印
 
 ### 开发者预览
 
-如果你是开发者或贡献者，可以通过 [gemini.pilio.ai](https://gemini.pilio.ai) 预览最新的开发版本。该版本可能包含实验性功能，不建议普通用户日常使用。
+如果你是开发者或贡献者，可以通过 [liud15.github.io/gemini-remover-liu](https://liud15.github.io/gemini-remover-liu/) 预览最新的开发版本。该版本可能包含实验性功能，不建议普通用户日常使用。
 
 ## 开发
 

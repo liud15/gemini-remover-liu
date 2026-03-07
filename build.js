@@ -32,7 +32,7 @@ const jsBanner = `/*!
 const userscriptBanner = `// ==UserScript==
 // @name         Gemini NanoBanana Watermark Remover
 // @name:zh-CN   Gemini NanoBanana 图片水印移除
-// @namespace    https://github.com/GargantuaX
+// @namespace    https://github.com/liud15
 // @version      0.1.8
 // @description  Automatically removes watermarks from Gemini AI generated images
 // @description:zh-CN 自动移除 Gemini AI 生成图像中的水印

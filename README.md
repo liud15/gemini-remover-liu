@@ -4,12 +4,11 @@
 
 An open-source tool to **remove Gemini watermarks** from AI-generated images — losslessly and precisely. Built with pure JavaScript, the engine uses a mathematically exact **Reverse Alpha Blending** algorithm instead of unpredictable AI inpainting, delivering pixel-perfect Gemini watermark removal every time.
 
-> **🚀 Looking for an easy Gemini watermark removal tool? Try it now: [pilio.ai/gemini-watermark-remover](https://pilio.ai/gemini-watermark-remover)** — free, no install, works directly in your browser.
+> **🚀 Looking for an easy Gemini watermark removal tool? Try it now: [liud15.github.io/gemini-remover-liu](https://liud15.github.io/gemini-remover-liu/)** — free, no install, works directly in your browser.
 
 <p align="center">
-  <a href="https://pilio.ai/gemini-watermark-remover"><img src="https://img.shields.io/badge/🛠️_Online_Tool-pilio.ai-blue?style=for-the-badge" alt="Online Tool"></a>&nbsp;
-  <a href="https://gemini.pilio.ai/userscript/gemini-watermark-remover.user.js"><img src="https://img.shields.io/badge/🐒_Userscript-Install-green?style=for-the-badge" alt="Userscript"></a>&nbsp;
-  <a href="https://gemini.pilio.ai"><img src="https://img.shields.io/badge/🧪_Dev_Preview-gemini.pilio.ai-gray?style=for-the-badge" alt="Developer Preview"></a>
+  <a href="https://liud15.github.io/gemini-remover-liu/"><img src="https://img.shields.io/badge/🛠️_Online_Tool-GitHub_Pages-blue?style=for-the-badge" alt="Online Tool"></a>&nbsp;
+  <a href="https://liud15.github.io/gemini-remover-liu/userscript/gemini-watermark-remover.user.js"><img src="https://img.shields.io/badge/🐒_Userscript-Install-green?style=for-the-badge" alt="Userscript"></a>
 </p>
 
 <p align="center">
@@ -59,7 +58,7 @@ An open-source tool to **remove Gemini watermarks** from AI-generated images —
 > The author assumes no responsibility for any data loss, image corruption, or unintended modifications. By using this tool, you acknowledge that you understand these risks.
 
 > [!NOTE]
-> **Note**: Disable any fingerprint defender extensions (e.g., Canvas Fingerprint Defender) to avoid processing errors. https://github.com/GargantuaX/gemini-watermark-remover/issues/3
+> **Note**: Disable any fingerprint defender extensions (e.g., Canvas Fingerprint Defender) to avoid processing errors. https://github.com/liud15/gemini-remover-liu/issues
 
 ## How to Remove Gemini Watermarks
 
@@ -67,7 +66,7 @@ An open-source tool to **remove Gemini watermarks** from AI-generated images —
 
 For all users — the fastest and easiest way to remove Gemini watermarks from images:
 
-1. Open **[pilio.ai/gemini-watermark-remover](https://pilio.ai/gemini-watermark-remover)**.
+1. Open **[liud15.github.io/gemini-remover-liu](https://liud15.github.io/gemini-remover-liu/)**.
 2. Drag and drop or click to select your Gemini-generated image.
 3. The engine will automatically process and remove the watermark.
 4. Download the cleaned image.
@@ -75,14 +74,14 @@ For all users — the fastest and easiest way to remove Gemini watermarks from i
 ### Userscript for Gemini Conversation Pages
 
 1. Install a userscript manager (e.g., Tampermonkey or Greasemonkey).
-2. Open [gemini-watermark-remover.user.js](https://gemini.pilio.ai/userscript/gemini-watermark-remover.user.js).
+2. Open [gemini-watermark-remover.user.js](https://liud15.github.io/gemini-remover-liu/userscript/gemini-watermark-remover.user.js).
 3. The script will install automatically.
 4. Navigate to Gemini conversation pages.
 5. Click "Copy Image" or "Download Image" to remove the watermark.
 
 ### Developer Preview
 
-If you are a developer or contributor, you can preview the latest development build at [gemini.pilio.ai](https://gemini.pilio.ai). This version may contain experimental features and is not intended for general use.
+If you are a developer or contributor, you can preview the latest development build at [liud15.github.io/gemini-remover-liu](https://liud15.github.io/gemini-remover-liu/). This version may contain experimental features and is not intended for general use.
 
 ## Development
 
