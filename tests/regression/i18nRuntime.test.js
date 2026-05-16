@@ -121,7 +121,7 @@ test('loadTranslations should fetch stable locale url without timestamp busting'
   assert.equal(urls[0], './i18n/zh-CN.json');
 });
 
-test('init should fallback to en-US and always clear loading class when locale load fails', async () => {
+test('init should fallback to es-ES and always clear loading class when locale load fails', async () => {
   const requested = [];
   const { removedClasses } = setupRuntime({
     savedLocale: 'fr-FR',
@@ -129,11 +129,11 @@ test('init should fallback to en-US and always clear loading class when locale l
     navigatorLanguages: ['fr-FR'],
     fetchImpl: async (url) => {
       requested.push(String(url));
-      if (String(url).includes('/en-US.json') || String(url).endsWith('en-US.json')) {
+      if (String(url).includes('/es-ES.json') || String(url).endsWith('es-ES.json')) {
         return {
           ok: true,
           async json() {
-            return { title: 'English Title' };
+            return { title: 'Título en español' };
           },
         };
       }
@@ -144,9 +144,9 @@ test('init should fallback to en-US and always clear loading class when locale l
   const i18n = await importFreshI18n();
   await i18n.init();
 
-  assert.equal(i18n.locale, 'en-US');
-  assert.equal(i18n.t('title'), 'English Title');
-  assert.deepEqual(requested, ['./i18n/en-US.json']);
+  assert.equal(i18n.locale, 'es-ES');
+  assert.equal(i18n.t('title'), 'Título en español');
+  assert.deepEqual(requested, ['./i18n/es-ES.json']);
   assert.deepEqual(removedClasses, ['loading']);
 });
 
@@ -163,8 +163,9 @@ test('should provide locale rotation for all supported locales', async () => {
 
   const i18n = await importFreshI18n();
   assert.equal(typeof i18n.getNextLocale, 'function');
-  assert.equal(i18n.getNextLocale('zh-CN'), 'en-US');
+  assert.equal(i18n.getNextLocale('zh-CN'), 'es-ES');
+  assert.equal(i18n.getNextLocale('es-ES'), 'en-US');
   assert.equal(i18n.getNextLocale('en-US'), 'pt-BR');
   assert.equal(i18n.getNextLocale('pt-BR'), 'zh-CN');
-  assert.equal(i18n.getLocaleShort('pt-BR'), 'PT');
+  assert.equal(i18n.getLocaleShort('es-ES'), 'ES');
 });
