@@ -61,8 +61,124 @@ function isRegionInsideImage(imageData, region) {
 }
 
 /**
+ * Search best position for a given config by sampling positions around the default.
+ * Returns { x, y, width, height, score } for best candidate.
+ */
+function searchBestPositionAround({ imageData, basePosition, sampleWidth, alphaMap, maxOffset = 48, step = 8 }) {
+    let best = { score: -Infinity, x: basePosition.x, y: basePosition.y, width: sampleWidth, height: sampleWidth };
+
+    // compute a small grid of offsets; keep samples bounded to avoid explosion
+    const halfRange = Math.min(maxOffset, Math.round(sampleWidth * 1.5));
+    const stepPx = Math.max(4, Math.round(step));
+
+    for (let dy = -halfRange; dy <= halfRange; dy += stepPx) {
+        for (let dx = -halfRange; dx <= halfRange; dx += stepPx) {
+            const x = basePosition.x + dx;
+            const y = basePosition.y + dy;
+
+            if (!isRegionInsideImage(imageData, { x, y, width: sampleWidth, height: sampleWidth })) continue;
+
+            const score = computeRegionSpatialCorrelation({
+                imageData,
+                alphaMap,
+                region: { x, y, size: sampleWidth }
+            });
+
+            if (score > best.score) {
+                best = { score, x, y, width: sampleWidth, height: sampleWidth };
+            }
+        }
+    }
+
+    return best;
+}
+
+/**
+ * Adaptive detection: choose between 48/96 standard configs and find the best position
+ * around the standard estimate. Returns { config, position, score, source }.
+ */
+export function detectBestConfigAndPosition({
+    imageData,
+    defaultConfig,
+    alpha48,
+    alpha96,
+    // tuning params:
+    maxOffset = 48,
+    step = 8,
+    minScoreToAccept = 0.18,
+    minScoreDelta = 0.08
+} = {}) {
+    if (!imageData || !defaultConfig || !alpha48 || !alpha96) {
+        // fallback to default config and its standard position
+        const fallbackPos = calculateWatermarkPosition(imageData?.width || 0, imageData?.height || 0, defaultConfig || getStandardConfig(48));
+        return { config: defaultConfig || getStandardConfig(48), position: fallbackPos, score: 0, source: 'fallback' };
+    }
+
+    const configs = [getStandardConfig(48), getStandardConfig(96)];
+    // ensure the defaultConfig is tested first (performance)
+    configs.sort((a, b) => (a.logoSize === defaultConfig.logoSize ? -1 : 0));
+
+    let bestOverall = null;
+
+    for (const cfg of configs) {
+        const basePos = calculateWatermarkPosition(imageData.width, imageData.height, cfg);
+        if (!isRegionInsideImage(imageData, basePos)) continue;
+
+        const alphaMap = getAlphaMapForConfig(cfg, alpha48, alpha96);
+
+        // base score at the canonical position
+        const baseScore = computeRegionSpatialCorrelation({
+            imageData,
+            alphaMap,
+            region: { x: basePos.x, y: basePos.y, size: basePos.width }
+        });
+
+        // update bestOverall if this is better
+        if (!bestOverall || baseScore > bestOverall.score) {
+            bestOverall = {
+                config: cfg,
+                position: { x: basePos.x, y: basePos.y, width: basePos.width, height: basePos.height },
+                score: baseScore,
+                source: 'standard'
+            };
+        }
+
+        // Only search nearby if baseScore is below threshold (i.e., possible displacement)
+        if (baseScore < minScoreToAccept) {
+            const bestLocal = searchBestPositionAround({
+                imageData,
+                basePosition: basePos,
+                sampleWidth: basePos.width,
+                alphaMap,
+                maxOffset,
+                step
+            });
+
+            if (bestLocal.score > (bestOverall?.score ?? -Infinity) + minScoreDelta) {
+                bestOverall = {
+                    config: cfg,
+                    position: { x: bestLocal.x, y: bestLocal.y, width: bestLocal.width, height: bestLocal.height },
+                    score: bestLocal.score,
+                    source: 'adaptive'
+                };
+            }
+        }
+    }
+
+    // If we found nothing valid, fall back to default
+    if (!bestOverall) {
+        const fallbackPos = calculateWatermarkPosition(imageData.width, imageData.height, defaultConfig);
+        return { config: defaultConfig, position: fallbackPos, score: 0, source: 'fallback' };
+    }
+
+    return bestOverall;
+}
+
+/**
  * Resolve initial standard config by comparing 48/96 template correlation scores.
  * This helps when fixed size rules mismatch newer Gemini output layouts.
+ *
+ * (Deprecated in favor of detectBestConfigAndPosition, kept for compatibility)
  */
 export function resolveInitialStandardConfig({
     imageData,
@@ -72,6 +188,7 @@ export function resolveInitialStandardConfig({
     minSwitchScore = 0.25,
     minScoreDelta = 0.08
 }) {
+    // Keep previous, simpler behavior to preserve backwards compatibility.
     if (!imageData || !defaultConfig || !alpha48 || !alpha96) return defaultConfig;
 
     const fallbackConfig = getStandardConfig(48);
